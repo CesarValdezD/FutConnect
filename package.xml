@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- Apex Classes -->
+    <types>
+        <members>*</members>
+        <name>ApexClass</name>
+    </types>
+
+    <!-- Apex Triggers -->
+    <types>
+        <members>*</members>
+        <name>ApexTrigger</name>
+    </types>
+
+    <!-- Visualforce Pages -->
+    <types>
+        <members>*</members>
+        <name>ApexPage</name>
+    </types>
+
+    <!-- Lightning Web Components -->
+    <types>
+        <members>*</members>
+        <name>LightningComponentBundle</name>
+    </types>
+
+    <!-- Aura Components (if you have any) -->
+    <types>
+        <members>*</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+
+    <!-- Experience Cloud Sites (Digital Experiences) -->
+    <types>
+        <members>*</members>
+        <name>Network</name>
+    </types>
+
+    <!-- Experience Cloud Site Metadata (navigation, branding, etc.) -->
+    <types>
+        <members>*</members>
+        <name>SiteDotCom</name>
+    </types>
+
+    <!-- Optionally include ExperienceBundle (site config in JSON) -->
+    <types>
+        <members>*</members>
+        <name>ExperienceBundle</name>
+    </types>
+
+    <!-- API version -->
+    <version>59.0</version>
+</Package>

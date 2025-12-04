@@ -1,0 +1,77 @@
+<template>
+    <lightning-card title="Mi Panel FutConnect" icon-name="custom:custom63">
+        <!-- <template if:true={loading}>
+            <div class="loading">
+                <lightning-spinner alternative-text="Cargando..." size="large"></lightning-spinner>
+            </div>
+        </template> -->
+
+        <template if:true={error}>
+            <div class="error">
+                <p>Ocurrió un error al cargar tu información.</p>
+                <p>{error}</p>
+            </div>
+        </template>
+
+        <template if:false={hasSubscription}>
+            <div class="no-sub">
+                <p>No tienes una suscripción activa.</p>
+                <lightning-button label="Login" onclick={navigateToLogin}></lightning-button>
+                <lightning-button label="Register" onclick={navigateToRegister}></lightning-button>
+            </div>
+        </template>
+
+        <template if:true={hasSubscription}>
+            <div class="search-container">
+                <lightning-input type="search" label="Buscar noticias" value={searchText}
+                    onchange={handleSearchInput}>
+                </lightning-input>
+                <lightning-button label="Buscar" onclick={handleSearch} class="slds-m-top_small"></lightning-button>
+                <lightning-button label="Recargar" onclick={handleRefresh} class="slds-m-left_small"></lightning-button>
+            </div>
+
+            <div class="section-header">
+                <h2>Mi Suscripción</h2>
+                <p>Nivel: <strong>{nivel}</strong></p>
+                <p>Renueva el: <strong>{fechaRenovacion}</strong></p>
+            </div>
+
+            <div class="section">
+                <h2>Noticias Destacadas</h2>
+                <template if:true={noticias.length}>
+                    <div class="cards">
+                        <template for:each={noticias} for:item="n">
+                            <div key={n.Id} class="card">
+                                <h3>{n.Titulo__c}</h3>
+                                <p class="contenido">{n.Contenido__c}</p>
+                                <p class="meta">Nivel: {n.Nivel__c}</p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template if:false={noticias.length}>
+                    <p>No hay noticias para tu nivel aún.</p>
+                </template>
+            </div>
+
+            <div class="section">
+                <h2>Productos Recomendados</h2>
+                <template if:true={productos.length}>
+                    <div class="cards">
+                        <template for:each={productos} for:item="p">
+                            <div key={p.Id} class="card">
+                                <h3>{p.Product_Name__c}</h3>
+                                <p class="meta">Precio: {p.List_Price__c}</p>
+                                <p class="meta">Nivel: {p.Nivel__c}</p>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template if:false={productos.length}>
+                    <p>No hay productos disponibles para tu nivel.</p>
+                </template>
+            </div>
+
+        </template>
+    </lightning-card>
+</template>
